@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Индейка с Дона - Свежесть с кубанских полей</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --terracotta: #D2691E;
+            --red: #A52A2A;
+            --beige: #F5E8C7;
+            --dark-beige: #E5D8B7;
+            --white: #FFFFFF;
+            --gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--beige);
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--terracotta);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--white);
+            font-size: 28px;
+            margin-left: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--beige);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .cart-btn {
+            position: relative;
+            color: var(--white);
+            font-size: 20px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--red);
+            color: var(--white);
+            font-size: 12px;
+            height: 20px;
+            width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--red);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--white);
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background-color: #8B2222;
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Feature Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            color: var(--terracotta);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            color: var(--red);
+            margin-bottom: 20px;
+        }
+        
+        .feature-item h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--terracotta);
+        }
+        
+        /* Products Preview */
+        .products-preview {
+            padding: 80px 0;
+            background-color: var(--beige);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 220px;
+        }
+        
+        .product-img img {
+            transition: transform 0.5s ease;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--terracotta);
+        }
+        
+        .product-info p {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--red);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .add-to-cart {
+            background-color: var(--red);
+            color: var(--white);
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #8B2222;
+            transform: scale(1.1);
+        }
+        
+        /* Recipe Section */
+        .recipes {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .recipe-card {
+            background-color: #fafafa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .recipe-img {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 220px;
+        }
+        
+        .recipe-img img {
+            transition: transform 0.5s ease;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .recipe-card:hover .recipe-img img {
+            transform: scale(1.05);
+        }
+        
+        .recipe-info {
+            padding: 20px;
+        }
+        
+        .recipe-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--terracotta);
+        }
+        
+        .recipe-info p {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        /* About Preview */
+        .about-preview {
+            padding: 80px 0;
+            background-color: var(--beige);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            transition: transform 0.5s ease;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            color: var(--terracotta);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background-color: var(--terracotta);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 0 30px 30px 0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #8B2222;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--gray);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: var(--beige);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--beige);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .features-grid,
+            .recipes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img,
+            .about-text {
+                width: 100%;
+            }
+
+            .hero h2 {
+                font-size: 48px;
+            }
+
+            .section-title h2 {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--terracotta);
+                transition: all 0.3s ease;
+                z-index: 1000;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h2 {
+                font-size: 40px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .features-grid,
+            .products-grid,
+            .recipes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+        }
+
+        /* Chat Bot */
+        .chat-bot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+        
+        .chat-bot-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-bot-icon:hover {
+            background-color: #8B2222;
+            transform: scale(1.1);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background-color: #fafafa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .review-info h4 {
+            color: var(--terracotta);
+            margin-bottom: 5px;
+        }
+
+        .review-stars {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Form */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--beige);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--terracotta);
+            box-shadow: 0 0 5px rgba(210, 105, 30, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .shimmer-effect {
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,255,255,0.2) 50%, 
+                rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        /* Enhanced Image Animations */
+        .product-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(255,255,255,0.1) 0%, 
+                rgba(255,255,255,0.3) 50%, 
+                rgba(255,255,255,0.1) 100%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-img::after {
+            transform: translateX(100%);
+        }
+
+        .product-img img {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        /* Parallax Effect */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            transform: translateY(var(--parallax-offset, 0));
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Enhanced Card Hover Effects */
+        .feature-item, .product-card, .recipe-card, .review-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item::before, .product-card::before, .recipe-card::before, .review-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, 
+                rgba(255,255,255,0.1) 0%, 
+                rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-item:hover::before, .product-card:hover::before, 
+        .recipe-card:hover::before, .review-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-item:hover, .product-card:hover, 
+        .recipe-card:hover, .review-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Scroll Animation */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png" alt="Логотип Индейка с Дона">
+                <h1>Индейка с Дона</h1>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Продукция</a></li>
+                    <li><a href="#">Рецепты</a></li>
+                    <li><a href="#">Магазины</a></li>
+                    <li><a href="#">Партнерам</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons">
+                <div class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg');">
+        <div class="hero-content">
+            <h2>Свежесть с кубанских полей</h2>
+            <p>Натуральная индейка без антибиотиков и ГМО, выращенная на свободном выгуле в экологически чистых районах Краснодарского края</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Купить сейчас</a>
+                <a href="#" class="btn-secondary">Узнать больше</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Почему выбирают нас</h2>
+                <p>Мы стремимся предоставить вам только лучшие продукты с соблюдением всех стандартов качества</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Натуральный корм</h3>
+                    <p>Наши индейки питаются натуральными зерновыми кормами без ГМО и химических добавок</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3>Без антибиотиков</h3>
+                    <p>Мы не используем антибиотики и гормоны роста при выращивании наших птиц</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Сертифицированное качество</h3>
+                    <p>Вся наша продукция проходит строгий контроль качества и имеет необходимые сертификаты</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Preview -->
+    <section class="products-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наша продукция</h2>
+                <p>Широкий ассортимент свежей индейки и полуфабрикатов для вашего стола</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg" alt="Филе индейки">
+                    </div>
+                    <div class="product-info">
+                        <h3>Филе грудки индейки</h3>
+                        <p>Нежное диетическое мясо, богатое белком</p>
+                        <div class="product-price">
+                            <span>490 ₽/кг</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.pexels.com/photos/618776/pexels-photo-618776.jpeg" alt="Бедро индейки">
+                    </div>
+                    <div class="product-info">
+                        <h3>Бедро индейки</h3>
+                        <p>Сочное мясо с тонким ароматом для запекания</p>
+                        <div class="product-price">
+                            <span>380 ₽/кг</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.pexels.com/photos/618777/pexels-photo-618777.jpeg" alt="Голень индейки">
+                    </div>
+                    <div class="product-info">
+                        <h3>Голень индейки</h3>
+                        <p>Идеально для жарки или приготовления на гриле</p>
+                        <div class="product-price">
+                            <span>360 ₽/кг</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.pexels.com/photos/618778/pexels-photo-618778.jpeg" alt="Крылья индейки">
+                    </div>
+                    <div class="product-info">
+                        <h3>Крылья индейки</h3>
+                        <p>Ароматные крылышки для закусок и праздничного стола</p>
+                        <div class="product-price">
+                            <span>280 ₽/кг</span>
+                            <button class="add-to-cart">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn-primary">Посмотреть весь каталог</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe Section -->
+    <section class="recipes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Вкусные рецепты</h2>
+                <p>Разнообразьте свой стол с нашими фирменными рецептами из индейки</p>
+            </div>
+            <div class="recipes-grid">
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="https://images.pexels.com/photos/265393/pexels-photo-265393.jpeg" alt="Запеченная индейка с овощами">
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Запеченная индейка с овощами</h3>
+                        <p>Сочное мясо с хрустящей корочкой и ароматными овощами под специями</p>
+                        <div class="recipe-meta">
+                            <span><i class="far fa-clock"></i> 60 минут</span>
+                            <span><i class="fas fa-fire"></i> Средняя сложность</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg" alt="Рулет из индейки с грибами">
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Рулет из индейки с грибами</h3>
+                        <p>Нежный рулет с ароматной грибной начинкой для особых случаев</p>
+                        <div class="recipe-meta">
+                            <span><i class="far fa-clock"></i> 90 минут</span>
+                            <span><i class="fas fa-fire"></i> Высокая сложность</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="https://images.pexels.com/photos/262897/pexels-photo-262897.jpeg" alt="Котлеты из индейки">
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Сочные котлеты из индейки</h3>
+                        <p>Диетические котлеты с зеленью и специями - любимое блюдо детей</p>
+                        <div class="recipe-meta">
+                            <span><i class="far fa-clock"></i> 30 минут</span>
+                            <span><i class="fas fa-fire"></i> Простой рецепт</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn-primary">Все рецепты</a>
+                <a href="#" class="btn-secondary">Скачать PDF-книгу рецептов</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.pexels.com/photos/735968/pexels-photo-735968.jpeg" alt="Наша ферма">
+                </div>
+                <div class="about-text">
+                    <h2>О нашей ферме</h2>
+                    <p>Наша ферма расположена в экологически чистом районе Краснодарского края, где индейки выращиваются на свободном выгуле с доступом к свежему воздуху и натуральному корму.</p>
+                    <p>Мы гордимся своим вкладом в развитие отечественного фермерства и стремимся производить только качественную продукцию, соответствующую высоким стандартам.</p>
+                    <p>Наша миссия — обеспечить российские семьи здоровыми и вкусными продуктами из индейки по доступным ценам.</p>
+                    <a href="#" class="btn-primary">Узнать больше о нас</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>Отзывы наших клиентов</h2>
+                <p>Узнайте, что говорят о нас те, кто уже попробовал нашу продукцию</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" alt="Анна" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Анна Петрова</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Невероятно вкусная индейка! Мясо сочное, нежное, идеально подходит для семейного ужина. Обязательно закажу еще!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" alt="Михаил" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Михаил Иванов</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Регулярно заказываю индейку для нашего ресторана. Качество всегда на высоте, доставка быстрая. Рекомендую!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt="Елена" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Елена Соколова</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Отличное качество мяса и профессиональный сервис. Буду заказывать снова!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Свяжитесь с нами</h2>
+                <p>Остались вопросы? Напишите нам, и мы обязательно ответим!</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Отправить сообщение</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mainNav.classList.remove('active');
+            }
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            hero.style.setProperty('--parallax-offset', `${scrolled * 0.5}px`);
+        });
+
+        // Scroll Animation
+        const scrollElements = document.querySelectorAll('.feature-item, .product-card, .recipe-card, .review-card');
+        
+        const elementInView = (el, percentageScroll = 100) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= 
+                ((window.innerHeight || document.documentElement.clientHeight) * (percentageScroll/100))
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('visible');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 100)) {
+                    displayScrollElement(el);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+
+        // Initial check for elements in view
+        handleScrollAnimation();
+    </script>
+</body>
+</html>
